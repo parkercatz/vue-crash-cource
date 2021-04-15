@@ -50,28 +50,14 @@ export default {
         task.id === id ? { ...task, reminder: !task.reminder } : task
       )
     },
+    async fetchTasks() {
+      const res = await fetch('http://localhost:5000/tasks')
+      const data = await res.json()
+      return data
+    },
   },
-  created() {
-    this.tasks = [
-      {
-        id: 1,
-        text: 'AAAAAA',
-        day: '04/01',
-        reminder: true,
-      },
-      {
-        id: 2,
-        text: 'BBBBBB',
-        day: '05/01',
-        reminder: true,
-      },
-      {
-        id: 3,
-        text: 'CCCCCC',
-        day: '06/01',
-        reminder: false,
-      },
-    ]
+  async created() {
+    this.tasks = await this.fetchTasks()
   },
 }
 </script>
