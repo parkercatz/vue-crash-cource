@@ -27,7 +27,7 @@ export default {
   name: 'AddTask',
   data() {
     return {
-      text: 'TEST',
+      text: '',
       day: '',
       reminder: false,
     }
@@ -49,7 +49,10 @@ export default {
       }
 
       this.$emit('add-task', newTask)
-      ;(this.text = ''), (this.day = ''), (this.reminder = false)
+
+      this.text = ''
+      this.day = ''
+      this.reminder = false
     },
   },
 }
@@ -59,12 +62,15 @@ export default {
 .add-form {
   margin-bottom: 40px;
 }
+
 .form-control {
   margin: 20px 0;
 }
+
 .form-control label {
   display: block;
 }
+
 .form-control input {
   width: 100%;
   height: 40px;
@@ -72,14 +78,17 @@ export default {
   padding: 3px 7px;
   font-size: 17px;
 }
+
 .form-control-check {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
+
 .form-control-check label {
   flex: 1;
 }
+
 .form-control-check input {
   flex: 2;
   height: 20px;
